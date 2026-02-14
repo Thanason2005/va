@@ -172,3 +172,15 @@ body{
     font-size:40px;
     text-shadow:0 0 30px white;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+}
