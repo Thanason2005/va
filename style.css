@@ -1,0 +1,174 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    overflow:hidden;
+    height:100vh;
+    background:radial-gradient(circle,#8e0e00,#c31432);
+    font-family:sans-serif;
+}
+
+#fireworks{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+}
+
+.petals{
+    position:fixed;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:2;
+}
+
+.petal{
+    position:absolute;
+    width:15px;
+    height:15px;
+    background:pink;
+    border-radius:50% 50% 0 50%;
+    transform:rotate(45deg);
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* เมฆ */
+.cloud{
+    position:absolute;
+    width:200px;
+    height:60px;
+    background:white;
+    border-radius:50px;
+    opacity:0.8;
+    animation:cloudMove 40s linear infinite;
+}
+
+.cloud1{ top:100px; left:-200px; }
+.cloud2{ top:300px; left:-300px; animation-duration:60s;}
+
+@keyframes cloudMove{
+    from{transform:translateX(0);}
+    to{transform:translateX(120vw);}
+}
+
+/* หัวใจแขวน */
+.hanging{
+    position:absolute;
+    width:80px;height:80px;
+    background:#ff4d6d;
+    transform:rotate(45deg);
+    animation:swing 3s ease-in-out infinite alternate;
+}
+
+.hanging:before,.hanging:after{
+    content:"";
+    position:absolute;
+    width:80px;height:80px;
+    background:#ff4d6d;border-radius:50%;
+}
+.hanging:before{top:-40px;}
+.hanging:after{left:40px;}
+
+.heart1{top:50px;left:20%;}
+.heart2{top:80px;left:50%;}
+.heart3{top:60px;left:75%;}
+
+@keyframes swing{
+    from{transform:rotate(40deg);}
+    to{transform:rotate(50deg);}
+}
+
+/* กล่อง */
+.gift-box{
+    position:absolute;
+    bottom:100px;
+    left:50%;
+    transform:translateX(-50%);
+    cursor:pointer;
+    animation:shake 1s infinite;
+    z-index:3;
+}
+
+.box{
+    width:150px;height:120px;
+    background:#ff0066;
+    border-radius:10px;
+}
+
+.lid{
+    width:170px;height:40px;
+    background:#ff4d6d;
+    position:absolute;
+    top:-40px;left:-10px;
+    border-radius:10px;
+    transition:0.6s;
+}
+
+@keyframes shake{
+    0%{transform:translateX(-50%) rotate(0);}
+    50%{transform:translateX(-50%) rotate(3deg);}
+    100%{transform:translateX(-50%) rotate(0);}
+}
+
+.gift-box.open .lid{
+    transform:translateY(-120px) rotate(-20deg);
+}
+
+/* Surprise */
+.surprise{
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    transition:1s;
+    text-align:center;
+    z-index:4;
+}
+
+.surprise.show{
+    transform:translate(-50%,-50%) scale(1);
+}
+
+.photo-frame{
+    padding:15px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 0 60px rgba(255,255,255,0.8);
+    position:relative;
+}
+
+.photo-frame img{
+    width:400px;
+    border-radius:15px;
+}
+
+/* Sparkle effect */
+.sparkle::after{
+    content:"✨ ✨ ✨ ✨ ✨";
+    position:absolute;
+    top:-30px;
+    left:0;
+    width:100%;
+    text-align:center;
+    animation:sparkleAnim 1.5s infinite alternate;
+}
+
+@keyframes sparkleAnim{
+    from{opacity:0.3;}
+    to{opacity:1;}
+}
+
+.wish{
+    margin-top:20px;
+    color:white;
+    font-size:40px;
+    text-shadow:0 0 30px white;
+}
